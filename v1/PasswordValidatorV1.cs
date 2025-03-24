@@ -1,6 +1,6 @@
-namespace PasswordValidator
+namespace Feature.PasswordValidator
 {
-    public class PasswordValidator
+    public class PasswordValidatorV1
     {
         public bool IsValid(string password)
         {
