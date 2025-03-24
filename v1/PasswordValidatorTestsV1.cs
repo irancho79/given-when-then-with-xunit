@@ -1,8 +1,9 @@
-namespace PasswordValidator
+
+namespace Feature.PasswordValidator
 {
-    public class PasswordValidatorTests
+    public class PasswordValidatorTestsV1
     {
-        private readonly PasswordValidator _validator = new PasswordValidator();
+        private readonly PasswordValidatorV1 _validator = new PasswordValidatorV1();
 
         [Fact]
         public void ShouldFail_WhenPasswordIsTooShort()
