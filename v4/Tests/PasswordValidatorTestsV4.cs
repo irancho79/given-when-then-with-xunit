@@ -38,6 +38,26 @@ namespace Feature.PasswordValidator
             var request = new PasswordValidationRequest("Admin@123", UserType.Admin);
             Assert.True(_validator.IsValid(request));
         }
-    }
 
+        [Fact]
+        public void Standard_ShouldFail_WhenPasswordHasNoUppercase()
+        {
+            var request = new PasswordValidationRequest("nouppercase1", UserType.Standard);
+            Assert.False(_validator.IsValid(request));
+        }
+
+        [Fact]
+        public void Standard_ShouldFail_WhenPasswordHasNoDigit()
+        {
+            var request = new PasswordValidationRequest("NoDigitHere", UserType.Standard);
+            Assert.False(_validator.IsValid(request));
+        }
+
+        [Fact]
+        public void Guest_ShouldFail_WhenPasswordIsTooShort()
+        {
+            var request = new PasswordValidationRequest("12345", UserType.Guest);
+            Assert.False(_validator.IsValid(request));
+        }
+    }
 }

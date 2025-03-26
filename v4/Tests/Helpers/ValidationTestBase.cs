@@ -1,12 +1,12 @@
 namespace Feature.PasswordValidator
 {
-    public abstract class Given_A_User_Base
+    public abstract class ValidationTestBase
     {
         protected readonly PasswordValidationRequest request;
         protected bool _result;
         protected readonly IPasswordValidator _validator;
 
-        protected Given_A_User_Base(string password, UserType userType)
+        protected ValidationTestBase(string password, UserType userType)
         {
             request = new PasswordValidationRequest(password, userType);
             _validator = new PasswordValidator();
@@ -16,6 +16,16 @@ namespace Feature.PasswordValidator
         {
             request.Password = password;
             _result = _validator.IsValid(request);
+        }
+
+        protected void ThenValidationFail()
+        {
+            Assert.False(_result);
+        }
+
+        protected void ThenValidationPass()
+        {
+            Assert.True(_result);
         }
     }
 }
