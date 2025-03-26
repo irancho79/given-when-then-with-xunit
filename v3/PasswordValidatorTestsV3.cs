@@ -2,6 +2,7 @@ namespace Feature.PasswordValidator
 {
     public class PasswordValidatorTestsV3
     {
+        private readonly PasswordValidatorV3 _validator = new PasswordValidatorV3();
         [Fact]
         public void ShouldFail_WhenPasswordIsTooShort()
         {
@@ -37,8 +38,7 @@ namespace Feature.PasswordValidator
         {
             Assert.True(_validator.IsValid("123456", true, false));
         }
-        private readonly PasswordValidatorV3 _validator = new PasswordValidatorV3();
-
+        
         [Fact]
         public void Admin_ShouldFail_WhenPasswordLacksSpecialCharacter()
         {

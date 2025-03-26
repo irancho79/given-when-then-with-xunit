@@ -29,5 +29,4 @@ namespace Feature.PasswordValidator
             Assert.True(_validator.IsValid("ValidPass1"));
         }
     }
-
 }
